@@ -1,0 +1,25 @@
+<a routerLink="/admin/myproject">Kembali</a>
+
+<form action="" (ngSubmit)="insertData()" enctype="multipart/form-data">
+        <ul style="list-style: none;">
+            <li>
+                <label for="">Nama</label>
+                <input type="text" name="nama" [(ngModel)]="form.nama">
+            </li>
+            <li>
+                <label for="">Deskripsi</label>
+                <textarea name="deskripsi" id="" cols="30" rows="10" [(ngModel)]="form.deskripsi"></textarea>
+            </li>
+            <li>
+                <label for="">Waktu pengerjaan</label>
+                <input type="text" name="waktu_pengerjaan" [(ngModel)]="form.waktu_pengerjaan">
+            </li>
+            <li>
+                <label for="">gambar</label>
+                <input type="file" accept="image/*" (change)="onFileSelected($event)">
+            </li>
+            <li>
+                <button type="submit">Simpan</button>
+            </li>
+        </ul>
+</form>

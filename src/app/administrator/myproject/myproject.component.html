@@ -1,0 +1,24 @@
+<h1>{{titlePage}}</h1>
+<button routerLink="/admin/add-projects">Add data</button>
+<table border="1">
+    <thead>
+        <tr>
+            <th *ngFor="let col of columTable">
+                {{col}}
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of dataMyproject">
+            <td>{{data.id}}</td>
+            <td [width]="100">{{data.nama}}</td>
+            <td [width]="300">{{data.deskripsi}}</td>
+            <td [width]="100">{{data.waktu_pengerjaan}}</td>
+            <td><img [src]="data.gambar" alt="gambar" width="300"></td>
+            <td>
+              <button>Edit</button>
+              <button>Hapus</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
