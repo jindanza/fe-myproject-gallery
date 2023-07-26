@@ -1,4 +1,4 @@
-export class MyprojectAddModel{
+export class MyprojectEditModel{
     id: any
     nama: any
     deskripsi: any

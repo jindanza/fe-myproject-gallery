@@ -13,6 +13,7 @@ import { SettingsComponent } from './settings/settings.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MyprojectaddComponent } from './myprojectadd/myprojectadd.component';
 import { FormsModule } from '@angular/forms';
+import { MyprojecteditComponent } from './myprojectedit/myprojectedit.component';
 
 const routes : Routes = [
   {
@@ -37,6 +38,9 @@ const routes : Routes = [
       },
       {
         path: 'add-projects', component:MyprojectaddComponent
+      },
+      {
+        path: 'edit-projects/:id', component:MyprojecteditComponent
       }
     ]
   }
@@ -48,7 +52,8 @@ const routes : Routes = [
     HomeComponent,
     MyprojectComponent,
     SettingsComponent,
-    MyprojectaddComponent
+    MyprojectaddComponent,
+    MyprojecteditComponent
   ],
   imports: [
     CommonModule,
