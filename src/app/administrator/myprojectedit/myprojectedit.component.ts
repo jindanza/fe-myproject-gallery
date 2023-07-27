@@ -19,6 +19,7 @@ export class MyprojecteditComponent implements OnInit {
   id: any
   form = new MyprojectEditModel()
   dataView: any
+  selectedFile: File | undefined;
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
@@ -31,5 +32,21 @@ export class MyprojecteditComponent implements OnInit {
       this.form = this.dataView.data
       console.log(this.form)
     })
+  }
+
+  updateData(){
+    console.log("id di dapat: " + this.id)
+    console.log("form di dapat: " + this.form)
+    this.myprojectEditService.updateData(this.id, this.form).subscribe(res =>{
+      console.log(res)
+      this.router.navigate(['../admin/myproject'])
+    })
+  }
+
+  onFileSelected(event: Event) {
+    const inputElement = event.target as HTMLInputElement;
+    if (inputElement.files) {
+      this.selectedFile = inputElement.files[0];
+    }
   }
 }

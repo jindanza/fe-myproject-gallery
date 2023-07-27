@@ -13,7 +13,11 @@ export class MyprojecteditService {
     private httpClient: HttpClient
   ) { }
 
-    getViewId(id: MyprojectEditModel){
+  getViewId(id: MyprojectEditModel){
       return this.httpClient.get(this.url + '/' + id)
-    }
+  }
+
+  updateData(id: MyprojectEditModel, data: MyprojectEditModel){
+    return this.httpClient.put(this.url + '/' + id, data)
+  }
 }

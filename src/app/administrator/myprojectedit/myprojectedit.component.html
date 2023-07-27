@@ -2,7 +2,7 @@
 
 <a routerLink="/admin/myproject">Kembali</a>
 
-<form action="" enctype="multipart/form-data">
+<form action="" enctype="multipart/form-data" (ngSubmit)="updateData()">
         <ul style="list-style: none;">
             <li>
                 <label for="">Nama</label>
@@ -18,7 +18,10 @@
             </li>
             <li>
                 <label for="">gambar</label>
-                <input type="file" accept="image/*">
+                <input type="file" accept="image/*" (change)="onFileSelected($event)">
+            </li>
+            <li>
+                <img src="http://localhost:8080/{{form.gambar}}" alt="" [width]="300">
             </li>
             <li>
                 <button type="submit">Update</button>
