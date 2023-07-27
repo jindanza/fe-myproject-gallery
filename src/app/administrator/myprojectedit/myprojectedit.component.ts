@@ -13,11 +13,11 @@ export class MyprojecteditComponent implements OnInit {
   constructor(
     private route : ActivatedRoute,
     private router : Router,
-    private myprojecteditService : MyprojecteditService
+    private myprojectEditService : MyprojecteditService
   ){}
   
   id: any
-  form = new MyprojectEditModel
+  form = new MyprojectEditModel()
   dataView: any
 
   ngOnInit(): void {
@@ -26,9 +26,10 @@ export class MyprojecteditComponent implements OnInit {
   }
 
   getViewId(){
-    this.myprojecteditService.getViewId(this.id).subscribe(res =>{
+    this.myprojectEditService.getViewId(this.id).subscribe(res =>{
       this.dataView = res
-      this.form = this.dataView
+      this.form = this.dataView.data
+      console.log(this.form)
     })
   }
 }
