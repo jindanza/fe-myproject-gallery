@@ -7,17 +7,25 @@ import { MyprojectEditModel } from './myprojecteditmodel';
 })
 export class MyprojecteditService {
 
-  url = 'http://localhost:8080/api/projects'
+  url = 'http://localhost:8080/api/projects';
 
-  constructor(
-    private httpClient: HttpClient
-  ) { }
+  constructor(private httpClient: HttpClient) {}
 
-  getViewId(id: MyprojectEditModel){
-      return this.httpClient.get(this.url + '/' + id)
+  getViewId(id: any) {
+    return this.httpClient.get(`${this.url}/${id}`);
   }
 
-  updateData(id: MyprojectEditModel, data: MyprojectEditModel){
-    return this.httpClient.put(this.url + '/' + id, data)
+  updateDataWithImage(id: any, data: MyprojectEditModel, imageFile: File) {
+    const formData = new FormData();
+    formData.append('nama', data.nama);
+    formData.append('deskripsi', data.deskripsi);
+    formData.append('waktu_pengerjaan', data.waktu_pengerjaan);
+    formData.append('gambar', imageFile);
+
+    return this.httpClient.put(`${this.url}/${id}`, formData);
+  }
+
+  updateDataWithoutImage(id: any, data: MyprojectEditModel) {
+    return this.httpClient.put(`${this.url}/${id}`, data);
   }
 }

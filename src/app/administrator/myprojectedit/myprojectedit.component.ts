@@ -34,13 +34,21 @@ export class MyprojecteditComponent implements OnInit {
     })
   }
 
-  updateData(){
-    console.log("id di dapat: " + this.id)
-    console.log("form di dapat: " + this.form)
-    this.myprojectEditService.updateData(this.id, this.form).subscribe(res =>{
-      console.log(res)
-      this.router.navigate(['../admin/myproject'])
-    })
+  updateData() {
+    console.log("id di dapat: " + this.id);
+    console.log("form di dapat: ", this.form);
+    
+    if (this.selectedFile) {
+      this.myprojectEditService.updateDataWithImage(this.id, this.form, this.selectedFile).subscribe(res => {
+        console.log(res);
+        this.router.navigate(['../admin/myproject']);
+      });
+    } else {
+      this.myprojectEditService.updateDataWithoutImage(this.id, this.form).subscribe(res => {
+        console.log(res);
+        this.router.navigate(['../admin/myproject']);
+      });
+    }
   }
 
   onFileSelected(event: Event) {
