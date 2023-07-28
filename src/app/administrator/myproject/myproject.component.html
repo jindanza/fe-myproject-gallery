@@ -17,7 +17,7 @@
             <td><img [src]="data.gambar" alt="gambar" width="300"></td>
             <td>
               <button routerLink="/admin/edit-projects/{{data.id}}">Edit</button>
-              <button>Hapus</button>
+              <button (click)="deleteData(data.id)">Hapus</button>
             </td>
         </tr>
     </tbody>
