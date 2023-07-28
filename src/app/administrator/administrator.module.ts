@@ -12,16 +12,21 @@ import { MyprojectComponent } from './myproject/myproject.component';
 import { SettingsComponent } from './settings/settings.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MyprojectaddComponent } from './myprojectadd/myprojectadd.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MyprojecteditComponent } from './myprojectedit/myprojectedit.component';
+import { LoginComponent } from './login/login.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatCardModule} from '@angular/material/card';
 
 const routes : Routes = [
   {
-    path: '', component:MainComponent,
+    path: '', component:LoginComponent,
     children:[
       {
         path: '',
-        redirectTo: '/admin/home',
+        redirectTo: '/admin',
         pathMatch: 'full'
       },
       {
@@ -53,7 +58,8 @@ const routes : Routes = [
     MyprojectComponent,
     SettingsComponent,
     MyprojectaddComponent,
-    MyprojecteditComponent
+    MyprojecteditComponent,
+    LoginComponent
   ],
   imports: [
     CommonModule,
@@ -64,7 +70,12 @@ const routes : Routes = [
     MatIconModule,
     FormsModule,
     MatListModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    FlexLayoutModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatCardModule,
+    ReactiveFormsModule,
   ]
 })
 export class AdministratorModule { }
