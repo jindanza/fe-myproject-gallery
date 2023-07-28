@@ -2,15 +2,15 @@
     <mat-card fxFlex="35">
         <mat-toolbar color="primary">Administrator Login</mat-toolbar>
         <mat-card-content>
-            <form fxLayoutAlign="stretch" fxLayout="column">
+            <form fxLayoutAlign="stretch" fxLayout="column" (ngSubmit)="onLoginSubmit()">
                 <mat-form-field>
                 <mat-label>Username</mat-label>
-                <input matInput type="text">
+                <input matInput type="text" [(ngModel)]="form.username" name="username" required>
                 </mat-form-field>
             
                 <mat-form-field>
                     <mat-label>Password</mat-label>
-                    <input matInput type="password">
+                    <input matInput type="password" [(ngModel)]="form.password" name="password" required>
                 </mat-form-field>
                 <button mat-raised-button type="submit" color="primary">Login</button>
             </form>  

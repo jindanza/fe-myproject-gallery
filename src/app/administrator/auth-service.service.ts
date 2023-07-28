@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { AuthServiceModel } from './auth-servicemodel';
+import { AuthModel } from './authmodel';
+
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class AuthServiceService {
 
   constructor(private httpClient: HttpClient) { }
 
-  login(data: AuthServiceModel):Observable<any>{
+  login(data: AuthModel):Observable<any>{
     return this.httpClient.post(this.url, data)
   }
 }
