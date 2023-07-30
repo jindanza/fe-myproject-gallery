@@ -22,11 +22,14 @@ import {MatCardModule} from '@angular/material/card';
 
 const routes : Routes = [
   {
-    path: '', component:LoginComponent,
+    path: 'login', component:LoginComponent,
+  },
+  {
+    path: '', component:MainComponent,
     children:[
       {
         path: '',
-        redirectTo: '/admin',
+        redirectTo: '/admin/login',
         pathMatch: 'full'
       },
       {
