@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MyprojectDeleteModel } from './myprojectdeletemodel';
+import { handleToken } from 'src/utils/helpers';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,9 @@ export class MyprojectService {
   url = 'http://localhost:8080/api/projects'
 
   getDataMyproject(){
-    return this.httpClient.get(this.url, this.httpOptions)
+    return this.httpClient.get(this.url, {
+      headers: handleToken()
+    })
   }
 
   deleteData(id: MyprojectDeleteModel){
