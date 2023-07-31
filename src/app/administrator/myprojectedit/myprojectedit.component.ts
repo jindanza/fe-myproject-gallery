@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MyprojecteditService } from './myprojectedit.service';
 import { MyprojectEditModel } from './myprojecteditmodel';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthServiceService } from '../auth-service.service';
 
 @Component({
   selector: 'app-myprojectedit',
@@ -13,7 +14,8 @@ export class MyprojecteditComponent implements OnInit {
   constructor(
     private route : ActivatedRoute,
     private router : Router,
-    private myprojectEditService : MyprojecteditService
+    private myprojectEditService : MyprojecteditService,
+    private authService: AuthServiceService
   ){}
   
   id: any
@@ -24,6 +26,14 @@ export class MyprojecteditComponent implements OnInit {
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
     this.getViewId()
+    this.checkLoginStatus();
+  }
+
+  checkLoginStatus(): void {
+    if (!this.authService.isLoggedIn()) {
+      this.authService.redirectToLogin();
+      alert("anda harus login terlebih dahulu")
+    }
   }
 
   getViewId(){

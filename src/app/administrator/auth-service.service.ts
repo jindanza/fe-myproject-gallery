@@ -26,4 +26,13 @@ export class AuthServiceService {
   redirectToLogin(): void {
     this.router.navigate(['admin/login']);
   }
+
+  logout(): void {
+    sessionStorage.clear()
+    localStorage.clear()
+    // how to delete all cookies
+    
+    this.router.navigate(['admin/login']);
+  }
+
 }

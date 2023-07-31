@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MyprojectService } from './myproject.service';
 import { MyprojectDeleteModel } from './myprojectdeletemodel';
+import { AuthServiceService } from '../auth-service.service';
 
 @Component({
   selector: 'app-myproject',
@@ -15,10 +16,18 @@ export class MyprojectComponent implements OnInit {
   resStringify: any
   model= new MyprojectDeleteModel()
 
-  constructor(private myprojectService: MyprojectService) {}
+  constructor(private myprojectService: MyprojectService, private authService: AuthServiceService) {}
 
   ngOnInit(): void {
     this.getDataMyproject();
+    this.checkLoginStatus();
+  }
+
+  checkLoginStatus(): void {
+    if (!this.authService.isLoggedIn()) {
+      this.authService.redirectToLogin();
+      alert("anda harus login terlebih dahulu")
+    }
   }
 
   getDataMyproject() {

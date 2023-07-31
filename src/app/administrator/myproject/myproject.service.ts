@@ -22,6 +22,8 @@ export class MyprojectService {
   }
 
   deleteData(id: MyprojectDeleteModel){
-    return this.httpClient.delete(this.url + '/' + id)
+    return this.httpClient.delete(this.url + '/' + id, {
+      headers: handleToken()
+    })
   }
 }

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MyprojectAddModel } from './myprojectaddmodel';
 import { MyprojectaddService } from './myprojectadd.service';
 import { Router } from '@angular/router';
+import { AuthServiceService } from '../auth-service.service';
 
 @Component({
   selector: 'app-myprojectadd',
@@ -16,8 +17,20 @@ export class MyprojectaddComponent {
 
   constructor(
     private myprojectaddService: MyprojectaddService,
-    private router: Router
+    private router: Router,
+    private authService: AuthServiceService
   ){}
+
+  ngOnInit(): void {
+    this.checkLoginStatus();
+  }
+
+  checkLoginStatus(): void {
+    if (!this.authService.isLoggedIn()) {
+      this.authService.redirectToLogin();
+      alert("anda harus login terlebih dahulu")
+    }
+  }
 
   insertData(){
     if (!this.form.nama || !this.selectedFile || !this.form.deskripsi || !this.form.waktu_pengerjaan) {

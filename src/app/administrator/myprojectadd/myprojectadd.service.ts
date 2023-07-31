@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { MyprojectAddModel } from './myprojectaddmodel';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { handleToken } from 'src/utils/helpers';
 
 @Injectable({
   providedIn: 'root'
@@ -20,8 +21,8 @@ export class MyprojectaddService {
     formData.append('waktu_pengerjaan', data.waktu_pengerjaan);
     formData.append('gambar', gambarFile);
 
-    const headers = new HttpHeaders();
-    headers.append('Content-Type', 'multipart/form-data');
-    return this.httpClient.post<any>(this.url, formData, { headers: headers });
+    // const headers = new HttpHeaders();
+    // headers.append('Content-Type', 'multipart/form-data');
+    return this.httpClient.post<any>(this.url, formData, { headers: handleToken() });
   }
 }

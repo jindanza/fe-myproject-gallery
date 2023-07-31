@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MyprojectEditModel } from './myprojecteditmodel';
+import { handleToken } from 'src/utils/helpers';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class MyprojecteditService {
   constructor(private httpClient: HttpClient) {}
 
   getViewId(id: any) {
-    return this.httpClient.get(`${this.url}/${id}`);
+    return this.httpClient.get(`${this.url}/${id}`, { headers: handleToken() });
   }
 
   updateDataWithImage(id: any, data: MyprojectEditModel, imageFile: File) {
@@ -22,10 +23,10 @@ export class MyprojecteditService {
     formData.append('waktu_pengerjaan', data.waktu_pengerjaan);
     formData.append('gambar', imageFile);
 
-    return this.httpClient.put(`${this.url}/${id}`, formData);
+    return this.httpClient.put(`${this.url}/${id}`, formData, { headers: handleToken() });
   }
 
   updateDataWithoutImage(id: any, data: MyprojectEditModel) {
-    return this.httpClient.put(`${this.url}/${id}`, data);
+    return this.httpClient.put(`${this.url}/${id}`, data, { headers: handleToken() });
   }
 }

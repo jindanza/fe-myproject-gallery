@@ -8,7 +8,7 @@
       <a mat-list-item routerLink="./home"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon> Home</a>
       <a mat-list-item routerLink="./myproject"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="code"></mat-icon> My project</a>
       <a mat-list-item routerLink="./settings"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="settings"></mat-icon> Settings</a>
-      <a mat-list-item href="#"><mat-icon aria-hidden="false"  color="warn" aria-label="Example home icon" fontIcon="logout"></mat-icon> Logout</a>
+      <a mat-list-item (click)="onLogout()"><mat-icon aria-hidden="false"  color="warn" aria-label="Example home icon" fontIcon="logout"></mat-icon> Logout</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
