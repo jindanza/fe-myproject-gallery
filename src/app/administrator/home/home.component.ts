@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { AuthServiceService } from '../auth-service.service';
 
 @Component({
   selector: 'app-home',
@@ -7,14 +7,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  // constructor(
-  //   private router: Router
-  // ){}
+  constructor(private authService: AuthServiceService) {}
 
-  // isLogin(){
-  //   if(!document.cookie){
-  //     this.router.navigate(['admin/login'])
-  //     return
-  //   }
-  // }
+  ngOnInit(): void {
+    this.checkLoginStatus();
+  }
+
+  checkLoginStatus(): void {
+    if (!this.authService.isLoggedIn()) {
+      this.authService.redirectToLogin();
+      alert("anda harus login terlebih dahulu")
+    }
+  }
 }
