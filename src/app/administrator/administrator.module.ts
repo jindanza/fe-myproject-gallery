@@ -19,6 +19,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
 
 const routes : Routes = [
   {
@@ -79,6 +81,8 @@ const routes : Routes = [
     MatInputModule,
     MatCardModule,
     ReactiveFormsModule,
+    MatPaginatorModule,
+    MatTableModule
   ]
 })
 export class AdministratorModule { }

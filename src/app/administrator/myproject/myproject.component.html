@@ -1,24 +1,39 @@
-<h1>{{titlePage}}</h1>
-<button routerLink="/admin/add-projects" mat-raised-button color="primary">Add data</button>
-<table class="mat-elevation-z8">
-    <thead>
-        <tr>
-            <th *ngFor="let col of columTable" mat-header-cell>
-                {{col}}
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let data of dataMyproject">
-            <td>{{data.id}}</td>
-            <td [width]="100">{{data.nama}}</td>
-            <td [width]="300">{{data.deskripsi}}</td>
-            <td [width]="100">{{data.waktu_pengerjaan}}</td>
-            <td><img [src]="data.gambar" alt="gambar" width="300"></td>
-            <td>
-              <button routerLink="/admin/edit-projects/{{data.id}}" mat-button color="primary">Edit</button>
-              <button (click)="deleteData(data.id)" mat-button color="warn">Hapus</button>
-            </td>
-        </tr>
-    </tbody>
-</table>
+<div class="mat-elevation-z8">
+    <h1>Myproject</h1>
+    <button routerLink="/admin/add-projects" mat-raised-button color="primary" class="add">Add data</button>
+    <mat-card>
+        <mat-card-content><span>Banyak Data : <b>{{dataMyproject.length}}</b></span></mat-card-content>
+    </mat-card>
+    <table>
+        <thead>
+            <tr>
+                <th *ngFor="let col of columTable" align="left">
+                    {{col}}
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngIf="dataMyproject.length > 0; else noData">
+            <tr *ngFor="let data of pagedData; let i = index">
+                <td>{{i + 1}}</td>
+                <td>{{data.nama}}</td>
+                <td>{{data.deskripsi}}</td>
+                <td>{{data.waktu_pengerjaan}}</td>
+                <td><img [src]="data.gambar" alt="gambar" width="300"></td>
+                <td>
+                <button routerLink="/admin/edit-projects/{{data.id}}" mat-button color="primary">Edit</button>
+                <button (click)="deleteData(data.id)" mat-button color="warn">Hapus</button>
+                </td>
+            </tr>
+            </ng-container>
+            <ng-template #noData>
+                <tr>
+                    <td colspan="6">No data available</td>
+                </tr>
+            </ng-template>
+        </tbody>
+    </table>
+
+    <mat-paginator [pageSize]="pageSize" [pageIndex]="pageIndex" [length]="totalItems" (page)="onPageChange($event)"></mat-paginator>
+
+</div>
