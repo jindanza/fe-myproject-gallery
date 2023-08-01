@@ -19,7 +19,7 @@ export class LoginComponent {
   onLoginSubmit() {
     this.authService.login(this.form).subscribe(
       (response) => {
-        document.cookie = `${response.data}`
+        document.cookie = `token=${response.data}`
         this.router.navigate(['admin/home'])
       },
       (error) => {

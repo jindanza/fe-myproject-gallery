@@ -1,9 +1,9 @@
 <h1>{{titlePage}}</h1>
-<button routerLink="/admin/add-projects">Add data</button>
-<table border="1">
+<button routerLink="/admin/add-projects" mat-raised-button color="primary">Add data</button>
+<table class="mat-elevation-z8">
     <thead>
         <tr>
-            <th *ngFor="let col of columTable">
+            <th *ngFor="let col of columTable" mat-header-cell>
                 {{col}}
             </th>
         </tr>
@@ -16,8 +16,8 @@
             <td [width]="100">{{data.waktu_pengerjaan}}</td>
             <td><img [src]="data.gambar" alt="gambar" width="300"></td>
             <td>
-              <button routerLink="/admin/edit-projects/{{data.id}}">Edit</button>
-              <button (click)="deleteData(data.id)">Hapus</button>
+              <button routerLink="/admin/edit-projects/{{data.id}}" mat-button color="primary">Edit</button>
+              <button (click)="deleteData(data.id)" mat-button color="warn">Hapus</button>
             </td>
         </tr>
     </tbody>
