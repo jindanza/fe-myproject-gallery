@@ -1,27 +1,26 @@
+<div class="mat-elevation-z8">
 <h2>Add Myproject</h2>
 
 <a routerLink="/admin/myproject">Kembali</a>
 
-<form action="" (ngSubmit)="insertData()" enctype="multipart/form-data">
-        <ul style="list-style: none;">
-            <li>
-                <label for="">Nama</label>
-                <input type="text" name="nama" [(ngModel)]="form.nama">
-            </li>
-            <li>
-                <label for="">Deskripsi</label>
-                <textarea name="deskripsi" id="" cols="30" rows="10" [(ngModel)]="form.deskripsi"></textarea>
-            </li>
-            <li>
-                <label for="">Waktu pengerjaan</label>
-                <input type="text" name="waktu_pengerjaan" [(ngModel)]="form.waktu_pengerjaan">
-            </li>
-            <li>
-                <label for="">gambar</label>
-                <input type="file" accept="image/*" (change)="onFileSelected($event)">
-            </li>
-            <li>
-                <button type="submit">Simpan</button>
-            </li>
-        </ul>
+<form action="" (ngSubmit)="insertData()" enctype="multipart/form-data" class="example-form">
+    <mat-form-field class="example-full-width">
+        <mat-label>Nama</mat-label>
+        <input matInput type="text" name="nama" [(ngModel)]="form.nama">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label>Deskripsi</mat-label>
+        <textarea matInput name="deskripsi" id="" cols="30" rows="10" [(ngModel)]="form.deskripsi"></textarea>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label>Waktu Pengerjaan</mat-label>
+        <input matInput type="text" name="waktu_pengerjaan" [(ngModel)]="form.waktu_pengerjaan">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Ex. Pizza" value="Sushi">
+    </mat-form-field>
+
+    <input type="file" accept="image/*" (change)="onFileSelected($event)">
+    <button type="submit">Simpan</button>
 </form>
+</div>
