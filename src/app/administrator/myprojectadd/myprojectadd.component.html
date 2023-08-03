@@ -1,26 +1,23 @@
 <div class="mat-elevation-z8">
 <h2>Add Myproject</h2>
 
-<a routerLink="/admin/myproject">Kembali</a>
+<button mat-stroked-button routerLink="/admin/myproject" color="primary">Kembali</button><br><br>
 
-<form action="" (ngSubmit)="insertData()" enctype="multipart/form-data" class="example-form">
+<form action="" (ngSubmit)="insertData()" enctype="multipart/form-data" >
     <mat-form-field class="example-full-width">
         <mat-label>Nama</mat-label>
         <input matInput type="text" name="nama" [(ngModel)]="form.nama">
     </mat-form-field>
     <mat-form-field class="example-full-width">
         <mat-label>Deskripsi</mat-label>
-        <textarea matInput name="deskripsi" id="" cols="30" rows="10" [(ngModel)]="form.deskripsi"></textarea>
+        <textarea matInput name="deskripsi" id="" cols="30" rows="2" [(ngModel)]="form.deskripsi"></textarea>
     </mat-form-field>
     <mat-form-field class="example-full-width">
         <mat-label>Waktu Pengerjaan</mat-label>
         <input matInput type="text" name="waktu_pengerjaan" [(ngModel)]="form.waktu_pengerjaan">
     </mat-form-field>
-    <mat-form-field class="example-full-width">
-        <input matInput placeholder="Ex. Pizza" value="Sushi">
-    </mat-form-field>
 
-    <input type="file" accept="image/*" (change)="onFileSelected($event)">
-    <button type="submit">Simpan</button>
+    <input type="file" accept="image/*" (change)="onFileSelected($event)"><br><br>
+    <button mat-flat-button type="submit" color="primary">Simpan</button>
 </form>
 </div>

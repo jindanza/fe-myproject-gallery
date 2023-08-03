@@ -33,7 +33,7 @@ export class AuthServiceService {
     // how to delete all cookies
     document.cookie = 'token=; expires=Thu, 1 Jan 1970 00:00:01 GMT;'
     
-    this.router.navigate(['admin/login']);
+    this.router.navigate(['admin/login', location.reload()]);
   }
 
 }

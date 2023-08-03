@@ -1,32 +1,28 @@
 <div class="mat-elevation-z8">
 <h2>Edit Myproject</h2>
 
-<a routerLink="/admin/myproject">Kembali</a>
+<button mat-stroked-button routerLink="/admin/myproject" color="primary">Kembali</button><br><br>
 
 <form action="" enctype="multipart/form-data" (ngSubmit)="updateData()">
-        <ul style="list-style: none;">
-            <li>
-                <label for="">Nama</label>
-                <input type="text" name="nama" [(ngModel)]="form.nama">
-            </li>
-            <li>
-                <label for="">Deskripsi</label>
-                <textarea name="deskripsi" id="" cols="30" rows="10" [(ngModel)]="form.deskripsi"></textarea>
-            </li>
-            <li>
-                <label for="">Waktu pengerjaan</label>
-                <input type="text" name="waktu_pengerjaan" [(ngModel)]="form.waktu_pengerjaan">
-            </li>
-            <li>
-                <label for="">gambar</label>
-                <input type="file" accept="image/*" (change)="onFileSelected($event)">
-            </li>
-            <li>
-                <img src="http://localhost:8080/{{form.gambar}}" alt="" [width]="300">
-            </li>
-            <li>
-                <button type="submit">Update</button>
-            </li>
-        </ul>
+        
+    <mat-form-field class="example-full-width">
+        <mat-label>Nama</mat-label>
+        <input matInput type="text" name="nama" [(ngModel)]="form.nama">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label>Deskripsi</mat-label>
+        <textarea matInput name="deskripsi" id="" cols="30" rows="2" [(ngModel)]="form.deskripsi"></textarea>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label>Waktu Pengerjaan</mat-label>
+        <input matInput type="text" name="waktu_pengerjaan" [(ngModel)]="form.waktu_pengerjaan">
+    </mat-form-field>
+
+    <input type="file" accept="image/*" (change)="onFileSelected($event)">
+    
+    <img src="http://localhost:8080/{{form.gambar}}" alt="" [width]="300"><br><br>
+
+    <button mat-flat-button type="submit" color="primary">Update</button>
+
 </form>
 </div>
