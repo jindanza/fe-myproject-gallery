@@ -1,0 +1,23 @@
+.home{
+  margin: 30px;
+  padding: 30px;
+}
+
+.myproject {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.gambar{
+  border-radius: 5px;
+  text-align: center;
+}

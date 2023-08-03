@@ -1,0 +1,24 @@
+<div class="home">
+    <button mat-flat-button routerLink="/admin" color="primary" >Login</button>
+
+    <h2 fxLayoutAlign="center center" fxFlexFill>Hallo Semua</h2>
+    <p fxLayoutAlign="center center" fxFlexFill>Perkenalkan nama saya Muhammad Jindan</p>
+
+    <h3>My Project</h3>
+    <p>Berikut adalah Project-project yang sudah pernah saya kerjakan :</p><br>
+
+    <div class="myproject">
+
+    <mat-card class="card" *ngFor="let data of dataMyproject">
+        <mat-card-header>
+        <mat-card-title>{{data.nama}}</mat-card-title>
+        <mat-card-subtitle>{{data.waktu_pengerjaan}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+        <img [src]="data.gambar" alt="gambar" width="350" class="gambar">
+        <p>{{data.deskripsi}}</p>
+        </mat-card-content>
+    </mat-card>
+
+    </div>
+</div>

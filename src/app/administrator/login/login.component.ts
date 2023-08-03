@@ -16,6 +16,12 @@ export class LoginComponent {
     private router: Router
   ) {}
 
+  ngOnInit(){
+    if(document.cookie){
+      this.router.navigate(['admin/home'])
+    }
+  }
+
   onLoginSubmit() {
     this.authService.login(this.form).subscribe(
       (response) => {
